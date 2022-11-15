@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Calculator</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div id="history">history</div>
+
+    <main>
+      <div id="state">
+        <button class="info" onclick="info()">
+          <img src="https://img.icons8.com/ios/50/null/information--v1.png" />
+        </button>
+
+        <button class="dark-mode">
+          <img src="https://img.icons8.com/ios/50/null/light-on--v1.png" />
+        </button>
+
+        <button class="history-mode">
+          <img src="https://img.icons8.com/ios/50/null/time-machine.png" />
+        </button>
+
+        <button class="sceintific-mode">
+          <img
+            src="https://img.icons8.com/external-flat-icons-inmotus-design/67/null/external-function-mathematics-geometry-flat-icons-inmotus-design-14.png"
+          />
+        </button>
+
+        <button class="cloud">
+          <img
+            src="https://img.icons8.com/ios/50/null/cloud-backup-restore--v1.png"
+          />
+        </button>
+      </div>
+      <div id="calculator">
+        <section id="header">My Calculator</section>
+
+        <section id="result">
+          <input type="text" class="calculator-screen" value="0" disabled />
+        </section>
+
+        <button class="clear">C</button>
+
+        <section id="digits">
+          <button value="7" onclick="displayButtonInfo(this.value)">7</button>
+          <button value="8" onclick="displayButtonInfo(this.value)">8</button>
+          <button value="9" onclick="displayButtonInfo(this.value)">9</button>
+
+          <button value="4" onclick="displayButtonInfo(this.value)">4</button>
+          <button value="5" onclick="displayButtonInfo(this.value)">5</button>
+          <button value="6" onclick="displayButtonInfo(this.value)">6</button>
+
+          <button value="1" onclick="displayButtonInfo(this.value)">1</button>
+          <button value="2" onclick="displayButtonInfo(this.value)">2</button>
+          <button value="3" onclick="displayButtonInfo(this.value)">3</button>
+
+          <button>+-</button>
+          <button value="0" onclick="displayButtonInfo(this.value)">0</button>
+          <button
+            class="decimal"
+            value="."
+            onclick="displayButtonInfo(this.value)"
+          >
+            .
+          </button>
+        </section>
+      </div>
+      <div id="operators">
+        <button class="settings">
+          <img src="https://img.icons8.com/ios/50/null/settings--v1.png" />
+        </button>
+
+        <button class="back">
+          <img src="https://img.icons8.com/ios/50/null/reply-arrow--v1.png" />
+        </button>
+
+        <button class="operator" value="/">&divide;</button>
+
+        <button class="operator" value="*">&times;</button>
+
+        <button class="operator" value="-">-</button>
+
+        <button class="operator" value="+">+</button>
+
+        <button class="equal-sign" value="=">=</button>
+      </div>
+    </main>
+
+    <div id="scientific">scientific</div>
+    <script src="./index.js"></script>
+  </body>
+</html>

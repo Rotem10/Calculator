@@ -1,0 +1,37 @@
+body {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+#digits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+#state {
+  display: grid;
+}
+#operators {
+  display: grid;
+}
+.clear {
+  width: 100%;
+}
+#calculator {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+#header {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  text-align: center;
+}
