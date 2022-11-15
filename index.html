@@ -71,22 +71,54 @@
       </div>
       <div id="operators">
         <button class="settings">
-          <img src="https://img.icons8.com/ios/50/null/settings--v1.png" />
+          <a href="./config.html">
+            <img src="https://img.icons8.com/ios/50/null/settings--v1.png" />
+          </a>
         </button>
 
         <button class="back">
           <img src="https://img.icons8.com/ios/50/null/reply-arrow--v1.png" />
         </button>
 
-        <button class="operator" value="/">&divide;</button>
+        <button
+          class="operator"
+          value="/"
+          onclick="displayButtonInfo(this.value)"
+        >
+          &divide;
+        </button>
 
-        <button class="operator" value="*">&times;</button>
+        <button
+          class="operator"
+          value="*"
+          onclick="displayButtonInfo(this.value)"
+        >
+          &times;
+        </button>
 
-        <button class="operator" value="-">-</button>
+        <button
+          class="operator"
+          value="-"
+          onclick="displayButtonInfo(this.value)"
+        >
+          -
+        </button>
 
-        <button class="operator" value="+">+</button>
+        <button
+          class="operator"
+          value="+"
+          onclick="displayButtonInfo(this.value)"
+        >
+          +
+        </button>
 
-        <button class="equal-sign" value="=">=</button>
+        <button
+          class="equal-sign"
+          value="="
+          onclick="displayButtonInfo(this.value)"
+        >
+          =
+        </button>
       </div>
     </main>
 
