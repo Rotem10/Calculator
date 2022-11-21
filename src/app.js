@@ -8,3 +8,7 @@ function changeBgc(v) {
     const body = document.querySelector("body");
     body.style.backgroundColor = v;
 }
+function load() { }
+document.addEventListener("DOMContentLoaded", () => {
+    load();
+});

@@ -46,22 +46,82 @@
         <button class="clear">C</button>
 
         <section id="digits">
-          <button value="7" onclick="displayButtonInfo(this.value)">7</button>
-          <button value="8" onclick="displayButtonInfo(this.value)">8</button>
-          <button value="9" onclick="displayButtonInfo(this.value)">9</button>
+          <button
+            class="operand"
+            value="7"
+            onclick="displayButtonInfo(this.value)"
+          >
+            7
+          </button>
+          <button
+            class="operand"
+            value="8"
+            onclick="displayButtonInfo(this.value)"
+          >
+            8
+          </button>
+          <button
+            class="operand"
+            value="9"
+            onclick="displayButtonInfo(this.value)"
+          >
+            9
+          </button>
 
-          <button value="4" onclick="displayButtonInfo(this.value)">4</button>
-          <button value="5" onclick="displayButtonInfo(this.value)">5</button>
-          <button value="6" onclick="displayButtonInfo(this.value)">6</button>
+          <button
+            class="operand"
+            value="4"
+            onclick="displayButtonInfo(this.value)"
+          >
+            4
+          </button>
+          <button
+            class="operand"
+            value="5"
+            onclick="displayButtonInfo(this.value)"
+          >
+            5
+          </button>
+          <button
+            class="operand"
+            value="6"
+            onclick="displayButtonInfo(this.value)"
+          >
+            6
+          </button>
 
-          <button value="1" onclick="displayButtonInfo(this.value)">1</button>
-          <button value="2" onclick="displayButtonInfo(this.value)">2</button>
-          <button value="3" onclick="displayButtonInfo(this.value)">3</button>
+          <button
+            class="operand"
+            value="1"
+            onclick="displayButtonInfo(this.value)"
+          >
+            1
+          </button>
+          <button
+            class="operand"
+            value="2"
+            onclick="displayButtonInfo(this.value)"
+          >
+            2
+          </button>
+          <button
+            class="operand"
+            value="3"
+            onclick="displayButtonInfo(this.value)"
+          >
+            3
+          </button>
 
           <button>+-</button>
-          <button value="0" onclick="displayButtonInfo(this.value)">0</button>
           <button
-            class="decimal"
+            class="operand"
+            value="0"
+            onclick="displayButtonInfo(this.value)"
+          >
+            0
+          </button>
+          <button
+            class="operand"
             value="."
             onclick="displayButtonInfo(this.value)"
           >
@@ -112,11 +172,7 @@
           +
         </button>
 
-        <button
-          class="equal-sign"
-          value="="
-          onclick="displayButtonInfo(this.value)"
-        >
+        <button class="eval" value="=" onclick="displayButtonInfo(this.value)">
           =
         </button>
       </div>
@@ -124,5 +180,6 @@
 
     <div id="scientific">scientific</div>
     <script src="./app.js"></script>
+    <script src="./calc.js"></script>
   </body>
 </html>
