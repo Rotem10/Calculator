@@ -16,6 +16,30 @@ let state: state = {
   decimal: false,
 };
 
+let copyState: state = {
+  result: 0,
+  firstOperand: null,
+  secondOperand: null,
+  operator: null,
+  decimal: false,
+};
+
+const backBtn = document.querySelector(".back");
+backBtn.addEventListener("click", (): void => back(true));
+
+function back(goBack: boolean) {
+  if (!goBack) {
+    copyState = JSON.parse(JSON.stringify(state));
+  } else {
+    state = copyState;
+    if (state.result) {
+      renderScreen(true);
+    } else {
+      renderScreen(false);
+    }
+  }
+}
+
 const operands: element[] = Array.from(document.querySelectorAll(".operand"));
 
 const operators: element[] = Array.from(document.querySelectorAll(".operator"));
@@ -68,12 +92,14 @@ function updateOperator(el: element) {
 
 operands.forEach((el: element) =>
   el.addEventListener("click", (): void => {
+    back(false);
     updateOperand(el);
     renderScreen(false);
   })
 );
 operators.forEach((el: element) =>
   el.addEventListener("click", (): void => {
+    back(false);
     updateOperator(el);
     renderScreen(false);
   })
@@ -81,6 +107,7 @@ operators.forEach((el: element) =>
 
 const evalBtn: element = document.querySelector(".eval");
 evalBtn.addEventListener("click", (): void => {
+  back(false);
   updateResult();
   renderScreen(true);
   clearState();
