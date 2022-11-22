@@ -56,11 +56,14 @@ function updateOperand(el: element) {
       }
     }
   }
-  console.log(state);
 }
 
 function updateOperator(el: element) {
-  state.operator = el.value;
+  if (!state.firstOperand) {
+    console.log("missing operand");
+  } else {
+    state.operator = el.value;
+  }
 }
 
 operands.forEach((el: element) =>
@@ -100,7 +103,6 @@ function updateResult() {
       break;
   }
   state.result = res;
-  console.log(state.result);
 }
 
 const clearBtn: element = document.querySelector(".clear");
@@ -117,7 +119,6 @@ function clearState() {
     operator: null,
     decimal: false,
   };
-  console.log(state);
 }
 
 function renderScreen(result: boolean) {
@@ -134,7 +135,6 @@ function renderScreen(result: boolean) {
   // if (displayState.operator === "/") {
   //   displayState.operator = "&divide";
   // }
-  console.log(displayState);
 
   const screenInp: element = document.querySelector(".calculator-screen");
 

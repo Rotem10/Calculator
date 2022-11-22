@@ -48,10 +48,14 @@ function updateOperand(el) {
             }
         }
     }
-    console.log(state);
 }
 function updateOperator(el) {
-    state.operator = el.value;
+    if (!state.firstOperand) {
+        console.log("missing operand");
+    }
+    else {
+        state.operator = el.value;
+    }
 }
 operands.forEach((el) => el.addEventListener("click", () => {
     updateOperand(el);
@@ -84,7 +88,6 @@ function updateResult() {
             break;
     }
     state.result = res;
-    console.log(state.result);
 }
 const clearBtn = document.querySelector(".clear");
 clearBtn.addEventListener("click", () => {
@@ -99,7 +102,6 @@ function clearState() {
         operator: null,
         decimal: false,
     };
-    console.log(state);
 }
 function renderScreen(result) {
     let displayState = JSON.parse(JSON.stringify(state));
@@ -115,7 +117,6 @@ function renderScreen(result) {
     // if (displayState.operator === "/") {
     //   displayState.operator = "&divide";
     // }
-    console.log(displayState);
     const screenInp = document.querySelector(".calculator-screen");
     if (result) {
         screenInp.value = displayState.result;
