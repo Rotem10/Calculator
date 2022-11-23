@@ -30,5 +30,3 @@ function toggleDark() {
 
 const darkBtn: Element = document.querySelector(".dark-mode");
 darkBtn.addEventListener("click", (): void => toggleDark());
-
-// document.addEventListener("DOMContentLoaded", () => {});
