@@ -32,6 +32,7 @@ img {
 
 #state {
   display: grid;
+  grid-template-rows: repeat(7, 1fr);
 }
 
 #operators {
@@ -55,15 +56,20 @@ input {
   border: none;
   background-color: #faf7f0;
   border: 0.5px solid #98a8f8;
-  padding: 0.3rem 0 0.3rem 0;
+  padding: 0;
   font-family: monospace;
   color: #404258;
   width: 100%;
+  height: 2rem;
 }
 
 .dark {
   background-color: #50577a;
   color: #ffffff;
+}
+
+.spacer {
+  border: 0.5px solid #98a8f8;
 }
 
 /*#result {
@@ -88,9 +94,10 @@ button {
   background: #cdfcf6;
   outline: none;
   border: 0.5px solid #98a8f8;
-  padding: 0.3rem 0 0.3rem 0;
+  height: 2rem;
   font-family: monospace;
   color: #404258;
+  padding: 0;
 }
 button:hover {
   background-color: #ade1d9;
