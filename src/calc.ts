@@ -59,7 +59,7 @@ function updateOperand(el: element) {
   } else {
     const dig: number = parseInt(el.value);
     if (state.decimal) {
-      if (!state.secondOperand) {
+      if (state.secondOperand === null) {
         updatedFirstOperand("." + el.value);
         state.decimal = false;
       } else {
@@ -67,12 +67,12 @@ function updateOperand(el: element) {
         state.decimal = false;
       }
     } else {
-      if (!state.firstOperand) {
+      if (state.firstOperand === null) {
         state.firstOperand = dig;
       } else if (!state.operator) {
         updatedFirstOperand(el.value);
       } else {
-        if (!state.secondOperand) {
+        if (state.secondOperand === null) {
           state.secondOperand = dig;
         } else {
           updatedSecondOperand(el.value);

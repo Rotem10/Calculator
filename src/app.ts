@@ -20,13 +20,35 @@ function toggleDark() {
   if (appState.dark) {
     body.classList.remove("dark");
     input.classList.remove("dark");
+    toggleSelected(darkBtn);
     appState.dark = false;
   } else {
     body.classList.add("dark");
     input.classList.add("dark");
+    toggleSelected(darkBtn);
     appState.dark = true;
   }
 }
 
-const darkBtn: Element = document.querySelector(".dark-mode");
+function toggleSelected(selectedBtn: Element) {
+  if (selectedBtn.classList.contains("selected")) {
+    selectedBtn.classList.remove("selected");
+  } else {
+    selectedBtn.classList.add("selected");
+  }
+}
+
+function toggleHistory() {
+  toggleSelected(historyBtn);
+}
+function toggleScientific() {
+  toggleSelected(scientificBtn);
+}
+
+const historyBtn: Element = document.querySelector("#history-mode");
+const scientificBtn: Element = document.querySelector("#sceintific-mode");
+const darkBtn: Element = document.querySelector("#dark-mode");
+
 darkBtn.addEventListener("click", (): void => toggleDark());
+historyBtn.addEventListener("click", (): void => toggleHistory());
+scientificBtn.addEventListener("click", (): void => toggleScientific());
