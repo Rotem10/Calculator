@@ -4,6 +4,8 @@
 // }
 let appState = {
     dark: false,
+    scientificMode: false,
+    remoteMode: false,
 };
 function changeBgc(v) {
     document.querySelector("body").style.backgroundColor = v;
@@ -35,30 +37,34 @@ function toggleSelected(selectedBtn) {
 function toggleHistory() {
     toggleSelected(historyBtn);
     const historySec = document.getElementById("history");
-    if (historySec.classList.contains("hide")) {
-        historySec.classList.remove("hide");
-    }
-    else {
-        historySec.classList.add("hide");
-    }
+    historySec.classList.contains("hide")
+        ? historySec.classList.remove("hide")
+        : historySec.classList.add("hide");
 }
 function toggleScientific() {
     toggleSelected(scientificBtn);
-    scientificMode = true;
+    appState.scientificMode = true;
     const scientificSec = document.getElementById("scientific");
-    if (scientificSec.classList.contains("hide")) {
-        scientificSec.classList.remove("hide");
-    }
-    else {
-        scientificSec.classList.add("hide");
-    }
+    scientificSec.classList.contains("hide")
+        ? scientificSec.classList.remove("hide")
+        : scientificSec.classList.add("hide");
+    // appState.scientificMode
+    //   ? (appState.scientificMode = false)
+    //   : (appState.scientificMode = true);
+}
+function toggleRemote() {
+    toggleSelected(remoteBtn);
+    appState.remoteMode
+        ? (appState.remoteMode = false)
+        : (appState.remoteMode = true);
 }
 const historyBtn = document.querySelector("#history-mode");
 const scientificBtn = document.querySelector("#sceintific-mode");
 const darkBtn = document.querySelector("#dark-mode");
+const remoteBtn = document.querySelector("#remote-mode");
 darkBtn.addEventListener("click", () => toggleDark());
 historyBtn.addEventListener("click", () => toggleHistory());
 scientificBtn.addEventListener("click", () => {
     toggleScientific();
-    test();
 });
+remoteBtn.addEventListener("click", () => toggleRemote());

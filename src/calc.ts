@@ -93,24 +93,40 @@ function updateOperator(el: element) {
 operands.forEach((el: element) =>
   el.addEventListener("click", (): void => {
     back(false);
-    updateOperand(el);
-    renderScreen(false);
+    if (!appState.remoteMode) {
+      updateOperand(el);
+      renderScreen(false);
+    } else {
+      updateExp(el);
+      renderRemote();
+    }
   })
 );
 operators.forEach((el: element) =>
   el.addEventListener("click", (): void => {
     back(false);
-    updateOperator(el);
-    renderScreen(false);
+    if (!appState.remoteMode) {
+      updateOperator(el);
+      renderScreen(false);
+    } else {
+      updateExp(el);
+      renderRemote();
+    }
   })
 );
 
 const evalBtn: element = document.querySelector(".eval");
 evalBtn.addEventListener("click", (): void => {
   back(false);
-  updateResult();
-  renderScreen(true);
-  clearState();
+  if (!appState.remoteMode) {
+    updateResult();
+    renderScreen(true);
+    clearState();
+  } else {
+    solveExp();
+    renderRemote();
+    clearRemote();
+  }
 });
 
 function updateResult() {
@@ -136,6 +152,7 @@ const clearBtn: element = document.querySelector(".clear");
 clearBtn.addEventListener("click", (): void => {
   clearState();
   renderScreen(false);
+  clearRemote();
 });
 
 function clearState() {
@@ -148,6 +165,8 @@ function clearState() {
   };
 }
 
+const screenInp: element = document.querySelector(".calculator-screen");
+
 function renderScreen(result: boolean) {
   let displayState = JSON.parse(JSON.stringify(state));
   if (!displayState.firstOperand) {
@@ -159,35 +178,68 @@ function renderScreen(result: boolean) {
   if (!displayState.operator) {
     displayState.operator = "";
   }
-  // if (displayState.operator === "/") {
-  //   displayState.operator = "&divide";
-  // }
-
-  const screenInp: element = document.querySelector(".calculator-screen");
 
   if (result) {
     screenInp.value = displayState.result;
   } else {
     let exp = `${displayState.firstOperand} ${displayState.operator} ${displayState.secondOperand}`;
     screenInp.value = exp;
-    //   if (
-    //     state.firstOperand &&
-    //     state.secondOperand &&
-    //     state.operator &&
-    //     scientificMode
-    //   ) {
-    //     exp = `${displayState.firstOperand}${displayState.operator}${displayState.secondOperand}`;
-    //     expression.concat(exp);
-    //     console.log(expression);
-    //     clearState();
-    //   }
   }
 }
 
-// ----------------- scientific mode ---------------
-let scientificMode: boolean = false;
+// ----------------- remote mode ---------------
 let expression: string = "";
 
-function test() {
-  console.log("hi");
+function updateExp(el: element) {
+  if (
+    el.value === "+" ||
+    el.value === "-" ||
+    el.value === "*" ||
+    el.value === "/"
+  ) {
+    expression = expression + ` ${el.value} `;
+  } else {
+    expression = expression + el.value;
+  }
+}
+
+function renderRemote(toRender = expression) {
+  screenInp.value = toRender;
+}
+
+function solveExp() {
+  let arrExp: string[] = expression.split(" ");
+  arrExp.filter((e) => {
+    e === " ";
+  });
+  let newExp: string = encodeURIComponent(arrExp.join(""));
+  let url: string = "http://api.mathjs.org/v4/?expr=";
+  url = url + newExp;
+  getResult(url);
+}
+
+async function getResult(url: string) {
+  try {
+    let response = await fetchWithTimeout(url);
+    let result = await response.text();
+    renderRemote(result);
+    console.log(result);
+  } catch (err) {
+    alert(err);
+    console.log(err);
+  }
+}
+
+async function fetchWithTimeout(url, timeout = 2000) {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+  const response = await fetch(url, {
+    signal: controller.signal,
+  });
+  clearTimeout(id);
+  return response;
+}
+
+function clearRemote() {
+  expression = "";
 }
