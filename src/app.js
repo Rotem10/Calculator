@@ -34,13 +34,31 @@ function toggleSelected(selectedBtn) {
 }
 function toggleHistory() {
     toggleSelected(historyBtn);
+    const historySec = document.getElementById("history");
+    if (historySec.classList.contains("hide")) {
+        historySec.classList.remove("hide");
+    }
+    else {
+        historySec.classList.add("hide");
+    }
 }
 function toggleScientific() {
     toggleSelected(scientificBtn);
+    scientificMode = true;
+    const scientificSec = document.getElementById("scientific");
+    if (scientificSec.classList.contains("hide")) {
+        scientificSec.classList.remove("hide");
+    }
+    else {
+        scientificSec.classList.add("hide");
+    }
 }
 const historyBtn = document.querySelector("#history-mode");
 const scientificBtn = document.querySelector("#sceintific-mode");
 const darkBtn = document.querySelector("#dark-mode");
 darkBtn.addEventListener("click", () => toggleDark());
 historyBtn.addEventListener("click", () => toggleHistory());
-scientificBtn.addEventListener("click", () => toggleScientific());
+scientificBtn.addEventListener("click", () => {
+    toggleScientific();
+    test();
+});

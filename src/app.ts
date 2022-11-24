@@ -40,9 +40,22 @@ function toggleSelected(selectedBtn: Element) {
 
 function toggleHistory() {
   toggleSelected(historyBtn);
+  const historySec = document.getElementById("history");
+  if (historySec.classList.contains("hide")) {
+    historySec.classList.remove("hide");
+  } else {
+    historySec.classList.add("hide");
+  }
 }
 function toggleScientific() {
   toggleSelected(scientificBtn);
+  scientificMode = true;
+  const scientificSec = document.getElementById("scientific");
+  if (scientificSec.classList.contains("hide")) {
+    scientificSec.classList.remove("hide");
+  } else {
+    scientificSec.classList.add("hide");
+  }
 }
 
 const historyBtn: Element = document.querySelector("#history-mode");
@@ -51,4 +64,7 @@ const darkBtn: Element = document.querySelector("#dark-mode");
 
 darkBtn.addEventListener("click", (): void => toggleDark());
 historyBtn.addEventListener("click", (): void => toggleHistory());
-scientificBtn.addEventListener("click", (): void => toggleScientific());
+scientificBtn.addEventListener("click", (): void => {
+  toggleScientific();
+  test();
+});

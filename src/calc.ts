@@ -168,6 +168,26 @@ function renderScreen(result: boolean) {
   if (result) {
     screenInp.value = displayState.result;
   } else {
-    screenInp.value = `${displayState.firstOperand} ${displayState.operator} ${displayState.secondOperand}`;
+    let exp = `${displayState.firstOperand} ${displayState.operator} ${displayState.secondOperand}`;
+    screenInp.value = exp;
+    //   if (
+    //     state.firstOperand &&
+    //     state.secondOperand &&
+    //     state.operator &&
+    //     scientificMode
+    //   ) {
+    //     exp = `${displayState.firstOperand}${displayState.operator}${displayState.secondOperand}`;
+    //     expression.concat(exp);
+    //     console.log(expression);
+    //     clearState();
+    //   }
   }
+}
+
+// ----------------- scientific mode ---------------
+let scientificMode: boolean = false;
+let expression: string = "";
+
+function test() {
+  console.log("hi");
 }
