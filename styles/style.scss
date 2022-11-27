@@ -85,9 +85,24 @@ input {
   text-align: center;
   background-color: $section-color;
   color: $font-color;
+  .scientific-buttons {
+    display: grid;
+  }
   #header {
     border-bottom: 1px solid $border-color;
     padding-right: 5px;
+  }
+  button {
+    background-color: $section-color;
+    outline: none;
+    border: 0.5px solid $border-color;
+    height: 2rem;
+    font-family: monospace;
+    color: $font-color;
+    padding: 0;
+    &:hover {
+      background-color: #a7bceb;
+    }
   }
 }
 button {

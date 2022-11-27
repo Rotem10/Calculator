@@ -90,9 +90,24 @@ input {
   background-color: #bccef8;
   color: #404258;
 }
+#scientific .scientific-buttons {
+  display: grid;
+}
 #scientific #header {
   border-bottom: 1px solid #98a8f8;
   padding-right: 5px;
+}
+#scientific button {
+  background-color: #bccef8;
+  outline: none;
+  border: 0.5px solid #98a8f8;
+  height: 2rem;
+  font-family: monospace;
+  color: #404258;
+  padding: 0;
+}
+#scientific button:hover {
+  background-color: #a7bceb;
 }
 
 button {
