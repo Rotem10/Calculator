@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sass src/style.scss src/style.css",
-    "dev-sass": "sass src/style.scss src/style.css --watch",
+    "build": "sass styles/style.scss styles/style.css",
+    "dev-sass": "sass styles/style.scss styles/style.css --watch",
     "dev": "npm run dev-sass && http-server"
   },
   "author": "",
