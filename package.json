@@ -7,12 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass src/style.scss src/style.css",
     "dev-sass": "sass src/style.scss src/style.css --watch",
-    "dev": "npm run dev-sass"
+    "dev": "npm run dev-sass && http-server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "live-server": "^1.1.0",
+    "http-server": "^14.1.1",
     "sass": "^1.56.1"
   },
   "devDependencies": {
