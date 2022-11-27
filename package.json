@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass styles/style.scss styles/style.css",
     "dev-sass": "sass styles/style.scss styles/style.css --watch",
-    "dev": "npm run dev-sass && npm run http-server --watch"
+    "dev-http-server": "http-server --watch",
+    "dev": "npm run dev-http-server && npm run dev-sass"
   },
   "author": "",
   "license": "ISC",
